@@ -20,7 +20,11 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".StudentDashboardActivity" />
         <activity android:name=".FacultyDashboardActivity" />
-        <activity android:name=".AdminDashboardActivity"></activity>
+        <activity android:name=".AdminDashboardActivity" />
+        <activity android:name=".EnterBatchDetails" />
+        <activity
+            android:name=".MarkAttendanceSelectBatchActivity"
+            android:label="@string/title_activity_mark_attendance_select_batch"></activity>
     </application>
 
 </manifest>
