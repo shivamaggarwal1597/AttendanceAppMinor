@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class LoginChooser extends AppCompatActivity {
     Button student,faculty,admin;
-    Intent intent = new Intent(LoginChooser.this,LoginActivity.class);
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +16,7 @@ public class LoginChooser extends AppCompatActivity {
         student = (Button)findViewById(R.id.student_btn);
         faculty = (Button)findViewById(R.id.faculty_btn);
         admin = (Button)findViewById(R.id.admin_btn);
-
+        intent = new Intent(LoginChooser.this,LoginActivity.class);
         faculty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

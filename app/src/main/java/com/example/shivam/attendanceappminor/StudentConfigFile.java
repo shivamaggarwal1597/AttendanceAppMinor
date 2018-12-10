@@ -18,8 +18,8 @@ public class StudentConfigFile {
     private String student_gender;
     private String student_dob;
     private String batch_id;//This is same as batch name
-    private int batch_start_year;
-    private int batch_end_year;
+    private String batch_start_year;
+    private String batch_end_year;
    // private Map<String,SemesterObjUtil> semester_list;
 
     public StudentConfigFile() {
@@ -27,9 +27,9 @@ public class StudentConfigFile {
         student_name =  "default";
         student_gender = "default";
         batch_id = "default";
-        batch_start_year = 0;
+        batch_start_year = "0";
         logged_in = false;
-        batch_end_year = 0;
+        batch_end_year = "0";
         //semester_list = new HashMap<>();
 
     }
@@ -74,19 +74,19 @@ public class StudentConfigFile {
         this.batch_id = batch_id;
     }
 
-    public int getBatch_start_year() {
+    public String getBatch_start_year() {
         return batch_start_year;
     }
 
-    public void setBatch_start_year(int batch_start_year) {
+    public void setBatch_start_year(String batch_start_year) {
         this.batch_start_year = batch_start_year;
     }
 
-    public int getBatch_end_year() {
+    public String getBatch_end_year() {
         return batch_end_year;
     }
 
-    public void setBatch_end_year(int batch_end_year) {
+    public void setBatch_end_year(String batch_end_year) {
         this.batch_end_year = batch_end_year;
     }
 

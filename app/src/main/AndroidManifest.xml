@@ -22,9 +22,9 @@
         <activity android:name=".FacultyDashboardActivity" />
         <activity android:name=".AdminDashboardActivity" />
         <activity android:name=".EnterBatchDetails" />
-        <activity
-            android:name=".MarkAttendanceSelectBatchActivity"
-            android:label="@string/title_activity_mark_attendance_select_batch"></activity>
+        <activity android:name=".MarkAttendanceActivity" />
+        <activity android:name=".SelectBatchActivity" />
+        <activity android:name=".SelectSubjectActivity"></activity>
     </application>
 
 </manifest>

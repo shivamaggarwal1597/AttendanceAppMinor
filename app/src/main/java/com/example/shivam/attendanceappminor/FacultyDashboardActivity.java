@@ -26,7 +26,7 @@ public class FacultyDashboardActivity extends AppCompatActivity {
         mark_attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FacultyDashboardActivity.this, MarkAttendanceSelectBatchActivity.class);
+                Intent intent = new Intent(FacultyDashboardActivity.this, SelectBatchActivity.class);
                 startActivity(intent);
             }
         });
