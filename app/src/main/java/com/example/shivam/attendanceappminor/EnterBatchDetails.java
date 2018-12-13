@@ -43,7 +43,7 @@ public class EnterBatchDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_batch_details);
         //Based on details entered and file uploaded, make update in the database
-        filenameet=findViewById(R.id.filename);
+        filenameet=findViewById(R.id.upload_file_edit_text);
         uploadbtn=findViewById(R.id.btnupload);
         studentidlist=new ArrayList<>();
         tinyDB = new TinyDB(EnterBatchDetails.this);
@@ -73,11 +73,12 @@ public class EnterBatchDetails extends AppCompatActivity {
                     databaseReference.child("faculty")
                             .child(tinyDB.getString("username"))
                             .child("batches")
-                            .child(batch_start_year+"_"+batch_end_year+"_"+batch_course+"_"+batch_stream)
+                            .child(batch_start_year.getText().toString().trim()+"_"+batch_end_year.getText().toString().trim()+"_"+batch_course.getText().toString().trim()+"_"+batch_stream.getText().toString().trim())
                             .child(String.valueOf(Utilsfunctions.findCurrentSemester(Integer.valueOf(batch_start_year.getText().toString())
                                     ,Integer.parseInt(batch_end_year.getText().toString()),year,month))).child(subject.getText().toString())
                             .child(studentidlist.get(i).getStudent_id()).setValue(studentidlist.get(i).getStudent_name());
-                    databaseReference.child("student").child(studentidlist.get(i).getStudent_id().toString()).child("semester").child(subject.getText().toString()).setValue(tinyDB.getString("username"));
+                    databaseReference.child("student").child(studentidlist.get(i).getStudent_id().toString()).child("semester").child(String.valueOf(Utilsfunctions.findCurrentSemester(Integer.valueOf(batch_start_year.getText().toString())
+                            ,Integer.parseInt(batch_end_year.getText().toString()),year,month))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ).child(subject.getText().toString()).setValue(tinyDB.getString("username"));
                     if (i==(studentidlist.size()-2)){
                         Toast.makeText(EnterBatchDetails.this,"Data Updated, Press Back",Toast.LENGTH_LONG).show();
                     }

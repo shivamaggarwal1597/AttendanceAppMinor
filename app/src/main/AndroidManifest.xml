@@ -29,7 +29,9 @@
         <activity android:name=".MarkAttendanceActivity" />
         <activity android:name=".SelectBatchActivity" />
         <activity android:name=".SelectSubjectActivity" />
-        <activity android:name=".SelectSubectAttendanceActivity"></activity>
+        <activity android:name=".SelectSubectAttendanceActivity" />
+        <activity android:name=".QuizFaculty" />
+        <activity android:name=".UploadQuizActivity"></activity>
     </application>
 
 </manifest>

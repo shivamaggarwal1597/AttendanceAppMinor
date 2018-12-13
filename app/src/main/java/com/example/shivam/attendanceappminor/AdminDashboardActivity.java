@@ -1,6 +1,7 @@
 package com.example.shivam.attendanceappminor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -42,6 +43,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     ArrayList<Student> studentArrayList;
     ArrayList<Faculty> facultyArrayList;
+    TinyDB tinyDB;
+    Button logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +53,17 @@ public class AdminDashboardActivity extends AppCompatActivity {
         firebaseDatabase=FirebaseDatabase.getInstance();
         studentArrayList=new ArrayList<>();
         facultyArrayList=new ArrayList<>();
-
+        tinyDB = new TinyDB(AdminDashboardActivity.this);
+logout= (Button)findViewById(R.id.logout);
+logout.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        tinyDB.clear();
+        Intent intent = new Intent(AdminDashboardActivity.this, LoginChooser.class);
+        startActivity(intent);
+        finish();
+    }
+});
 
         studentfilebutton=findViewById(R.id.studentfileupload);
         facultyfilebutton=findViewById(R.id.facultyfileupload);
@@ -137,15 +150,37 @@ public class AdminDashboardActivity extends AppCompatActivity {
                     Log.w("FileUtils", "Cell Value: " +  myCell.toString());
                     Toast.makeText(context, "cell Value: " + myCell.toString(), Toast.LENGTH_SHORT).show();
                 }
-                String id  = values[1];
-                id =  id.replace(".","");
-                id  = id.replace("E10","");
+
+
 
                 if(filetype.equals("student")) {
+                    String id  = values[1];
+                    id =  id.replace(".","");
+                    id  = id.replace("E10","");
+                    values[2]=values[2].replace(".0","");
+                    if(values[2].length()<8){
+                        values[2]="0"+values[2];
+                    }
+                    values[3]=values[3].replace(".0","");
+                    values[4]=values[4].replace(".0","");
+                    values[5]=values[5].replace(".0","");
+                    values[7]=values[7].replace(".","");
+                    values[7]=values[7].replace("E9","");
                     String batchid=values[4]+"_"+values[5]+"_"+values[9]+"_"+values[6];
                     Student student = new Student(values[0], id, values[2], values[3],batchid , values[4], values[5], values[6], values[7], values[8], values[9]);
                     studentArrayList.add(student);
                 }else{
+                    String id  = values[1];
+
+                    id =  id.replace(".","");
+                    id  = id.replace("E10","");
+                    values[2]=values[2].replace(".0","");
+                    if(values[2].length()<8){
+                        values[2]="0"+values[2];
+                    }
+                    values[3]=values[3].replace(".0","");
+                    values[5]=values[5].replace(".","");
+                    values[5]=values[5].replace("E9","");
                     Faculty faculty=new Faculty(values[0],id,values[2],values[3],values[4],values[5]);
                     facultyArrayList.add(faculty);
 
@@ -154,7 +189,9 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
             }
             MyTask myTask=new MyTask();
-            myTask.execute();
+            String filetypearray[]=new String[1];
+            filetypearray[0]=filetype;
+            myTask.execute(filetypearray);
         }catch (Exception e){
             e.printStackTrace();
         }
