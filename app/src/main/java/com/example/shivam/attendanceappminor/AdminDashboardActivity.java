@@ -198,7 +198,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         private void inputstudentdata(final Student student){
 
 
-            databaseReference.child(student.getStudendid()).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
+            databaseReference.child(student.getStudent_id()).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Log.e("DATAENTRY","SUCCESS");
