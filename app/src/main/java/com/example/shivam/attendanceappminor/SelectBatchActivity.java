@@ -37,7 +37,6 @@ public class SelectBatchActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-
         databaseReference =  firebaseDatabase.getReference();
         databaseReference.child("faculty").child(tinyDB.getString("username")).child("batches").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.shivam.attendanceappminor.model.Student;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText user_name,password;
+    EditText user_name,password,batch_id;
     Button button;
     FirebaseDatabase firebaseDatabase;
     TinyDB tinyDB;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.password_edit);
         button = (Button)findViewById(R.id.submit_btn);
         final Intent intent = getIntent();
+
         final String type  = intent.getStringExtra("type");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                         tinyDB.putString("username",user_name.getText().toString());
                         Intent intent1 = new Intent(LoginActivity.this, AdminDashboardActivity.class);
                         startActivity(intent1);
+                        finish();
                     }
 
                 }
@@ -67,9 +70,10 @@ public class LoginActivity extends AppCompatActivity {
                         if (dataSnapshot.getValue(String.class).equals(password.getText().toString())){
                         Intent intent1 = new Intent(LoginActivity.this,FacultyDashboardActivity.class);
                         tinyDB.putString("login_type","faculty");
-                        tinyDB.putBoolean("logged",true);
+                        tinyDB.putBoolean("logged_in",true);
                         tinyDB.putString("username",user_name.getText().toString());
                         startActivity(intent1);
+                        finish();
                         }
                     }else {
                         Toast.makeText(LoginActivity.this, "Wrong Credentials",Toast.LENGTH_LONG).show();
@@ -83,6 +87,31 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+        }else if(type.equals("student")){
+
+            databaseReference.child("student").child(user_name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String password_text = dataSnapshot.child("password").getValue(String.class);
+                   if(password.getText().toString().equals(password_text)){
+
+                       //Valid Student
+
+                       Intent intent2 = new Intent(LoginActivity.this,StudentDashboardActivity.class);
+                       tinyDB.putString("student_id",user_name.getText().toString());
+                       tinyDB.putBoolean("logged_in",true);
+                       tinyDB.putString("login_type","student");
+                       startActivity(intent2);
+                       finish();
+                   }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
 
 

@@ -23,6 +23,7 @@ public class LoginChooser extends AppCompatActivity {
                 //GO to faculty dashboard
                 intent.putExtra("type","faculty");
                 startActivity(intent);
+                finish();
             }
         });
         admin.setOnClickListener(new View.OnClickListener() {
@@ -30,13 +31,15 @@ public class LoginChooser extends AppCompatActivity {
             public void onClick(View view) {
 intent.putExtra("type","admin");
                 startActivity(intent);
+                finish();
             }
         });
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 intent.putExtra("type","student");
-                startActivity(intent);    }
+                startActivity(intent);
+                finish();}
         });
 
     }

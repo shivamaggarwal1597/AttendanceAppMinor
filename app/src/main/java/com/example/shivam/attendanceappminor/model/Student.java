@@ -1,28 +1,28 @@
 package com.example.shivam.attendanceappminor.model;
 
 public class Student {
-    String studentname;
-    String studendid;
-    String studentdob;
+    String student_name;
+    String student_id;
+    String student_dob;
     String password;
-    String batchid;
-    String batchstartyear;
-    String batchendyear;
+    String batch_id;
+    String batch_start_year;
+    String batch_end_year;
     String stream;
-    String mobilenumber;
+    String mobile_number;
     String gender;
     String course;
 
     public Student(String studentname, String studendid, String studentdob, String password, String batchid, String batchstartyear, String batchendyear, String stream, String mobilenumber, String gender, String course) {
-        this.studentname = studentname;
-        this.studendid = studendid;
-        this.studentdob = studentdob;
+        this.student_name = studentname;
+        this.student_id = studendid;
+        this.student_dob = studentdob;
         this.password = password;
-        this.batchid = batchid;
-        this.batchstartyear = batchstartyear;
-        this.batchendyear = batchendyear;
+        this.batch_id = batchid;
+        this.batch_start_year = batchstartyear;
+        this.batch_end_year = batchendyear;
         this.stream = stream;
-        this.mobilenumber = mobilenumber;
+        this.mobile_number = mobilenumber;
         this.gender = gender;
         this.course = course;
     }
@@ -30,28 +30,28 @@ public class Student {
     public Student() {
     }
 
-    public String getStudentname() {
-        return studentname;
+    public String getStudent_name() {
+        return student_name;
     }
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname;
+    public void setStudent_name(String student_name) {
+        this.student_name = student_name;
     }
 
-    public String getStudendid() {
-        return studendid;
+    public String getStudent_id() {
+        return student_id;
     }
 
-    public void setStudendid(String studendid) {
-        this.studendid = studendid;
+    public void setStudent_id(String student_id) {
+        this.student_id = student_id;
     }
 
-    public String getStudentdob() {
-        return studentdob;
+    public String getStudent_dob() {
+        return student_dob;
     }
 
-    public void setStudentdob(String studentdob) {
-        this.studentdob = studentdob;
+    public void setStudent_dob(String student_dob) {
+        this.student_dob = student_dob;
     }
 
     public String getPassword() {
@@ -62,28 +62,28 @@ public class Student {
         this.password = password;
     }
 
-    public String getBatchid() {
-        return batchid;
+    public String getBatch_id() {
+        return batch_id;
     }
 
-    public void setBatchid(String batchid) {
-        this.batchid = batchid;
+    public void setBatch_id(String batch_id) {
+        this.batch_id = batch_id;
     }
 
-    public String getBatchstartyear() {
-        return batchstartyear;
+    public String getBatch_start_year() {
+        return batch_start_year;
     }
 
-    public void setBatchstartyear(String batchstartyear) {
-        this.batchstartyear = batchstartyear;
+    public void setBatch_start_year(String batch_start_year) {
+        this.batch_start_year = batch_start_year;
     }
 
-    public String getBatchendyear() {
-        return batchendyear;
+    public String getBatch_end_year() {
+        return batch_end_year;
     }
 
-    public void setBatchendyear(String batchendyear) {
-        this.batchendyear = batchendyear;
+    public void setBatch_end_year(String batch_end_year) {
+        this.batch_end_year = batch_end_year;
     }
 
     public String getStream() {
@@ -94,12 +94,12 @@ public class Student {
         this.stream = stream;
     }
 
-    public String getMobilenumber() {
-        return mobilenumber;
+    public String getMobile_number() {
+        return mobile_number;
     }
 
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
+    public void setMobile_number(String mobile_number) {
+        this.mobile_number = mobile_number;
     }
 
     public String getGender() {

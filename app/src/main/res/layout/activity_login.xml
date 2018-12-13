@@ -5,7 +5,7 @@
 android:orientation="vertical"
     android:layout_marginTop="150dp"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="200dp"
     tools:context="com.example.shivam.attendanceappminor.LoginActivity">
 <EditText
     android:layout_width="match_parent"
@@ -19,10 +19,18 @@ android:orientation="vertical"
         android:layout_weight="1"
         android:id="@+id/password_edit"
         android:hint="Enter password"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:id="@+id/batch_id_edit_text"
+        android:hint="Enter Batch ID"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="SUBMIT"
         android:id="@+id/submit_btn"/>
+
 </LinearLayout>

@@ -18,34 +18,55 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/start_year"
         android:hint="Select Start Year"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/end_year"
         android:hint="Select End Year"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/select_stream"
         android:hint="Select Stream"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:id="@+id/subject_taught"
         android:layout_weight="1"
         android:hint="Select Subject Taught"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_blue_light"
-            android:text="Upload Student File"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:orientation="horizontal"
+          android:layout_weight="1">
+
+          <EditText
+              android:layout_width="0dp"
+              android:id="@+id/upload_file_edit_text"
+              android:layout_height="match_parent"
+              android:hint="File name"
+              android:layout_weight="1"/>
+          <Button
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:id="@+id/btnupload"
+              android:layout_weight="1"
+              android:background="@android:color/holo_blue_light"
+              android:text="Upload Student File"/>
+
+
+      </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/submit_btn"
         android:text="SUBMIT"
         android:background="@android:color/holo_red_light"/>
 </LinearLayout>

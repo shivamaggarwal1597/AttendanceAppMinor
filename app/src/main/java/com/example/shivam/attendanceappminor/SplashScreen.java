@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         try{
 
            b   = tinyDB.getBoolean("logged_in");
-           type = tinyDB.getString("type");
+           type = tinyDB.getString("login_type");
 
            if (b){
                Toast.makeText(SplashScreen.this,"welcome",Toast.LENGTH_LONG).show();
@@ -34,13 +34,19 @@ public class SplashScreen extends AppCompatActivity {
                else if(type.equals("student")){
                    intent2 = new Intent(SplashScreen.this,StudentDashboardActivity.class);
                }
-              startActivity(intent2);
+              //startActivity(intent2);
+           }else{
+               intent2 = new Intent(SplashScreen.this,LoginChooser.class);
+
            }
+           startActivity(intent2);
+           finish();
 
         }catch (Exception e){
             Intent intent = new Intent(SplashScreen.this,LoginChooser.class);
             startActivity(intent);
             Toast.makeText(SplashScreen.this, "First Time Login",Toast.LENGTH_LONG).show();
+            finish();
         }
 
     }

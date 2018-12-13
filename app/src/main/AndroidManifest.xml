@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shivam.attendanceappminor">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +28,8 @@
         <activity android:name=".EnterBatchDetails" />
         <activity android:name=".MarkAttendanceActivity" />
         <activity android:name=".SelectBatchActivity" />
-        <activity android:name=".SelectSubjectActivity"></activity>
+        <activity android:name=".SelectSubjectActivity" />
+        <activity android:name=".SelectSubectAttendanceActivity"></activity>
     </application>
 
 </manifest>

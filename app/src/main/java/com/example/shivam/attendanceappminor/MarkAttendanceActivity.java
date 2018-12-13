@@ -34,7 +34,6 @@ public class MarkAttendanceActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     int count =0;
     Button button;
-   // Calendar c;
     LinearLayoutManager linearLayoutManager;
     MarkAttendanceAdapter markAttendanceAdapter;
     List<AttendanceStudentModel> attendanceStudentModels;
